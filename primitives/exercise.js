@@ -383,6 +383,19 @@ function superPicky(value) {
 // If the salary is greater than 74,900
 //    Return a string that says 'Better call an accountant'
 // Otherwise
+//    Return a string for the tax percentage they are in:
+//       * single up to (and including) $9,225 => '10%'
+//       * single above $9,225 => '15%'
+//       * joint up to (and including) $18,450 => '10%'
+//       * joint above $18,450 => '15%'
 function calculateTaxRate(salary, status) {
-  // YOUR CODE HERE
+  if ((status === 'single' && salary <= 9225) || (status === 'joint' && salary <= 18450)) {
+    return '10%'
+  } else if ((status === 'single' && (salary >= 9225)) || (status === 'joint' && (salary >= 18450))) {
+    return '15%'
+  } else if (salary > 74900) {
+    return 'Better call an accountant' 
+  } else {
+    return 'Better call an accountant'
+  }
 }
